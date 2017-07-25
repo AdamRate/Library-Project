@@ -20,9 +20,7 @@ public class Library {
 			if (p1.listOfBorrowedItems.size() < 4 && itemList.get(itemId).getIsAvailable() == true) {
 				itemList.get(itemId).isAvailable = false;
 				p1.listOfBorrowedItems.add(itemId);
-				System.out.println("Person: " + p1.uniqueId + " \tBorrowed Item: " + itemId + "  " + "\tPerson "
-						+ p1.uniqueId + "s loaned books: " + p1.listOfBorrowedItems);
-				System.out.println("");
+				System.out.println("Person: " + p1.uniqueId + " \tBorrowed Item: " + itemId + "  " + "\tPerson " + p1.uniqueId + "s loaned books: " + p1.listOfBorrowedItems + "\n");
 				break;
 			} else
 				System.out.println("Item is Unavailable");
@@ -39,8 +37,7 @@ public class Library {
 				System.out.println("User " + p1.uniqueId + " has not checked out item " + itemId);
 			break;
 		}
-		System.out.println("User " + p1.uniqueId + "s checked out books are: " + p1.listOfBorrowedItems);
-		System.out.println("");
+		System.out.println("User " + p1.uniqueId + "s checked out books are: " + p1.listOfBorrowedItems + "\n");
 	}
 
 	public String listAvailItems() {
@@ -54,7 +51,7 @@ public class Library {
 	}
 
 	public String listOutItems() {
-		System.out.println("Items on loan are: ");
+		System.out.println("\nItems on loan are: ");
 		for (int i = 0; i < itemList.size(); i++) {
 			if (itemList.get(i).isAvailable == false) {
 				System.out.println(itemList.get(i));
@@ -123,7 +120,7 @@ public class Library {
 
 	public String registerUser(String Firstname, String Surname) {
 		peopleList.add(new Person(Firstname, Surname));
-		return "New Person Added: " + Firstname + " " + Surname;
+		return "New Person Added: " + Firstname + " " + Surname +"\n";
 	}
 
 	public void removeUser(int userId) {
@@ -132,27 +129,21 @@ public class Library {
 			if (peopleList.get(i).uniqueId == userId) {
 				peopleList.remove(i);
 				System.out.println(
-						"\nPerson " + i + " Removed: " + peopleList.get(i).firstName + " " + peopleList.get(i).surname);
+						"\nPerson " + i + " Removed: " + peopleList.get(i).firstName + " " + peopleList.get(i).surname + "\n");
 			}
 		}
 	}
 
 	public String updatePerson(int userId, String Name, String Surname) {
-		System.out.print("User " + userId + ": ");
-		System.out.print(peopleList.get(userId).firstName + " ");
-		System.out.print(peopleList.get(userId).surname + "   Updated to   ");
+		System.out.print("User " + userId + ": " + peopleList.get(userId).firstName + " " + peopleList.get(userId).surname + "   Updated to   " );
 		peopleList.get(userId).firstName = Name;
 		peopleList.get(userId).surname = Surname;
-		System.out.print(peopleList.get(userId).firstName + " ");
-		System.out.print(peopleList.get(userId).surname + "\n");
-
+		System.out.print(peopleList.get(userId).firstName + " " + peopleList.get(userId).surname + "\n");
 		return null;
 	}
 
 	public void updateItem(int itemId) {
-		System.out.println(("Item: " + itemId));
-		System.out.println(itemList.get(itemId).title);
-
+		System.out.println(("Item: " + itemId) + (itemList.get(itemId).title));
 	}
 
 	public void printItemList() {

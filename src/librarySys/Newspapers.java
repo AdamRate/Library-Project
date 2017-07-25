@@ -12,7 +12,7 @@ public class Newspapers extends Items {
 	}
 
 	public String toString(){
-		return super.toString() + "\nDate: " + date + "\nDay: " + day; 
+		return super.toString() + "\tDate: " + date + "\tDay: " + day; 
 		}
 	
 }

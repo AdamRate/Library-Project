@@ -11,7 +11,7 @@ public class Maps extends Items {
 	}
 	
 	public String toString(){
-		return super.toString() + "\nSize: " + size;
+		return super.toString() + "\tSize: " + size;
 		
 	}
 	
