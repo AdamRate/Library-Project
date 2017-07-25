@@ -45,8 +45,8 @@ public class Items {
 	}
 
 	public String toString() {
-		return "Item Number: " + itemNumber + "\nTitle: " + title + "\nYear: " + year + "\nCondition: " + condition
-				+ "\nLoan Length: " + loanLength + "\nAvailable? " + isAvailable;
+		return "Item Number: " + itemNumber + "\tTitle: " + title + "\tYear: " + year + "\tCondition: " + condition
+				+ "\tLoan Length: " + loanLength + "\tAvailable: " + isAvailable;
 	}
 
 	public boolean getIsAvailable() {

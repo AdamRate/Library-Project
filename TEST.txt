@@ -1,52 +1,10 @@
-Item Number: 0
-Title: Book 1
-Year: 1995
-Condition: Good
-Loan Length: 7
-Available? true
-Author: Author 1
-Is a Hardback? true
+Type: Book	Item Number: 0	Title: Book1	Year: 1995	Condition: Good	Loan Length: 7	Available: true	Author: Author1	Is a Hardback: true
 
-Item Number: 1
-Title: Map 1
-Year: 2010
-Condition: Excellent
-Loan Length: 7
-Available? true
-Size: 70
+Type: Map	Item Number: 1	Title: Map1	Year: 2010	Condition: Excellent	Loan Length: 7	Available: true	Size: 70
 
-Item Number: 3
-Title: Book 2
-Year: 1900
-Condition: Poor
-Loan Length: 7
-Available? true
-Author: Author 2
-Is a Hardback? true
+Type: Newspaper	Item Number: 2	Title: Newspaper1	Year: 2011	Condition: Poor	Loan Length: 1	Available: true	Date: June6th	Day: Monday
 
-Item Number: 4
-Title: Map 2
-Year: 2010
-Condition: Excellent
-Loan Length: 7
-Available? true
-Size: 60
+Type: Book	Item Number: 3	Title: Book2	Year: 1900	Condition: Poor	Loan Length: 7	Available: true	Author: Author2	Is a Hardback: true
 
-Item Number: 5
-Title: Book 3
-Year: 1929
-Condition: Fair
-Loan Length: 7
-Available? true
-Author: Author 3
-Is a Hardback? true
-
-Item Number: 6
-Title: Book 4
-Year: 1798
-Condition: Poor
-Loan Length: 1
-Available? true
-Author: Author 4
-Is a Hardback? false
+Type: Map	Item Number: 4	Title: Map2	Year: 2010	Condition: Excellent	Loan Length: 7	Available: true	Size: 60
 
