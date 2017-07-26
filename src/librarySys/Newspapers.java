@@ -14,7 +14,7 @@ public class Newspapers extends Items {
 	}
 
 	public String toString(){
-		return "Type: " + type + "\t" +super.toString() + "\tDate: " + date + "\tDay: " + day; 
+		return type + "," +super.toString() + "," + date + "," + day; 
 		}
 	
 }

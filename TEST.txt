@@ -1,10 +1,5 @@
-Type: Book	Item Number: 0	Title: Book1	Year: 1995	Condition: Good	Loan Length: 7	Available: true	Author: Author1	Is a Hardback: true
-
-Type: Map	Item Number: 1	Title: Map1	Year: 2010	Condition: Excellent	Loan Length: 7	Available: true	Size: 70
-
-Type: Newspaper	Item Number: 2	Title: Newspaper1	Year: 2011	Condition: Poor	Loan Length: 1	Available: true	Date: June6th	Day: Monday
-
-Type: Book	Item Number: 3	Title: Book2	Year: 1900	Condition: Poor	Loan Length: 7	Available: true	Author: Author2	Is a Hardback: true
-
-Type: Map	Item Number: 4	Title: Map2	Year: 2010	Condition: Excellent	Loan Length: 7	Available: true	Size: 60
-
+Book,0,Book1,1995,Good,7,true,Author1,true
+Map,1,Map1,2010,Excellent,7,true,70
+Newspaper,2,Newspaper1,2011,Poor,1,true,June6th,Monday
+Book,3,Book2,1900,Poor,7,true,Author2,true
+Map,4,Map2,2010,Excellent,7,true,60
