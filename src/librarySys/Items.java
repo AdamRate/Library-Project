@@ -1,8 +1,5 @@
 package librarySys;
 
-
-import java.util.ArrayList;
-
 public class Items {
 
 	private static int totalItems = -1;
@@ -32,21 +29,55 @@ public class Items {
 		return mainLib.itemList.get(itemNumber);
 	}
 
-	public void addItem() {
+	
 
+	public int getItemNumber() {
+		return itemNumber;
 	}
 
-	public void removeItem() {
-
+	public void setItemNumber(int itemNumber) {
+		this.itemNumber = itemNumber;
 	}
 
-	public void updateItem() {
+	public String getTitle() {
+		return title;
+	}
 
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public String getCondition() {
+		return condition;
+	}
+
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+
+	public int getLoanLength() {
+		return loanLength;
+	}
+
+	public void setLoanLength(int loanLength) {
+		this.loanLength = loanLength;
+	}
+
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
 	}
 
 	public String toString() {
-		return "Item Number: " + itemNumber + "\tTitle: " + title + "\tYear: " + year + "\tCondition: " + condition
-				+ "\tLoan Length: " + loanLength + "\tAvailable: " + isAvailable;
+		return "Item Number:" + itemNumber + "\tTitle:" + title + "\tYear:" + year + "\tCondition:" + condition
+				+ "\tLoan Length:" + loanLength + "\tAvailable:" + isAvailable;
 	}
 
 	public boolean getIsAvailable() {

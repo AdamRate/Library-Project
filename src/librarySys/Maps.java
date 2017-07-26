@@ -13,7 +13,7 @@ public class Maps extends Items {
 	}
 	
 	public String toString(){
-		return "Type: " + type + "\t" +super.toString() + "\tSize: " + size;
+		return "Type:" + type + "\t" +super.toString() + "\tSize:" + size;
 		
 	}
 	

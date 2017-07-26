@@ -4,14 +4,8 @@ import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Library {
 
@@ -148,17 +142,26 @@ public class Library {
 		return null;
 	}
 
-	public void updateItem(int itemId) {
-		System.out.println(("Item: " + itemId) + (itemList.get(itemId).title));
+	public void updateItem(int itemId, String title, int year, String condition, int loanLength, boolean isAvailable) {
+		System.out.print(("Item: " + itemId) +" " + (itemList.get(itemId).title) + " Updated to: ");
+		itemList.get(itemId).title = title;
+		itemList.get(itemId).year = year;
+		itemList.get(itemId).condition = condition;
+		itemList.get(itemId).loanLength = loanLength;
+		itemList.get(itemId).isAvailable = isAvailable;
+		System.out.print(
+				itemList.get(itemId).title + " " + itemList.get(itemId).year + " " + itemList.get(itemId).condition
+						+ " " + itemList.get(itemId).loanLength + " " + itemList.get(itemId).isAvailable +"\n");
 	}
 
 	public void printItemList() {
 		try {
 			PrintWriter pw = new PrintWriter(new FileOutputStream("TEST.txt"));
 			for (Items item : itemList)
-				pw.println(item + "\n");
+				pw.println(item);
 			pw.close();
 			System.out.println("File Printed");
+			System.out.println(itemList);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -173,30 +176,104 @@ public class Library {
 		String[] out = null;
 		String[] out2 = null;
 
+		String holder = "";
+		String title = "";
+		String author = "";
+		boolean isHardback = false;
+		boolean isAvailable = false;
+		String type = "";
+		String condition = "";
+		int year = -1;
+		int size = -1;
+		int itemNo = -1;
+		int loanLength = -1;
+		String day;
+		String date;
+
 		try {
 			fr = new FileReader(FILENAME);
 			br = new BufferedReader(fr);
 			String sCurrentLine;
-
 			while ((sCurrentLine = br.readLine()) != null) {
 				out = sCurrentLine.split("\t");
 				for (int i = 0; i < out.length; i++) {
-					// System.out.println(out[i]);
-
 					out2 = out[i].split(":");
-					for (int j = 1; j < out.length; j++, j++) {
-						System.out.println(out2[j]);
-						
-						if(out2[j].contains("Book")){
-							System.out.println("Test Complete");
+					for (int j = 1; j < out2.length; j++) {
+
+						if (out2[j].equals("Book") || out2[j].equals("Newspaper") || out2[j].equals("Map")) {
+
+							System.out.println("Processing Item");
+							// Type
+							type = sCurrentLine.split("\t")[0];
+							type = type.split(":")[1];
+							// ItemNumber
+							holder = sCurrentLine.split("\t")[1];
+							holder = holder.split(":")[1];
+							itemNo = Integer.parseInt(holder);
+							// Title
+							title = sCurrentLine.split("\t")[2];
+							title = title.split(":")[1];
+							title = title.split(" ")[0];
+							// Year
+							holder = sCurrentLine.split("\t")[3];
+							holder = holder.split(":")[1];
+							year = Integer.parseInt(holder);
+							// Condition
+							holder = sCurrentLine.split("\t")[4];
+							condition = holder.split(":")[1];
+							// Loan Length
+							holder = sCurrentLine.split("\t")[5];
+							holder = holder.split(":")[1];
+							loanLength = Integer.parseInt(holder);
+							// Availability
+							holder = sCurrentLine.split("\t")[6];
+							holder = holder.split(":")[1];
+							isAvailable = (holder != null);
 						}
-						
+
+						if (out2[j].equals("Book")) {
+							System.out.println("Process Book");
+
+							// Author
+							holder = sCurrentLine.split("\t")[7];
+							holder = holder.split(":")[1];
+							author = holder;
+							// isHardback
+							holder = sCurrentLine.split("\t")[8];
+							holder = holder.split(":")[1];
+							isHardback = (holder != null);
+
+							itemList.add(new Books(type, title, year, condition, loanLength, author, isHardback,
+									isAvailable));
+						}
+
+						if (out2[j].equals("Map")) {
+							System.out.println("Process Map");
+							holder = sCurrentLine.split("\t")[7];
+							holder = holder.split(":")[1];
+							size = Integer.parseInt(holder);
+
+							itemList.add(new Maps(type, title, year, condition, loanLength, size, isAvailable));
+						}
+
+						if (out2[j].equals("Newspaper")) {
+							System.out.println("Process Newspaper");
+							holder = sCurrentLine.split("\t")[7];
+							date = holder.split(":")[1];
+
+							holder = sCurrentLine.split("\t")[8];
+							day = holder.split(":")[1];
+
+							itemList.add(
+									new Newspapers(type, title, year, condition, loanLength, date, day, isAvailable));
+						}
 						break;
+
 					}
 				}
+
 			}
-			
-			
+
 		} catch (
 
 		IOException e) {
@@ -221,7 +298,6 @@ public class Library {
 		Person userId = getPeopleList(1);
 		return "Items: " + userId.listOfBorrowedItems.get(0) + " ," + userId.listOfBorrowedItems.get(1) + ", "
 				+ userId.listOfBorrowedItems.get(3) + " ," + userId.listOfBorrowedItems.get(3);
-
 	}
 
 }
